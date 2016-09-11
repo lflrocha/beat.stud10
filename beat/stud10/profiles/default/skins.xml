@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Stud10">
+
+ <object name="beat_stud10_images"
+    meta_type="Filesystem Directory View"
+    directory="beat.stud10:skins/beat_stud10_images"/>
+ <object name="beat_stud10_templates"
+    meta_type="Filesystem Directory View"
+    directory="beat.stud10:skins/beat_stud10_templates"/>
+
+
+ <skin-path name="Stud10" based-on="Sunburst Theme">
+  <layer name="beat_stud10_images"
+     insert-after="custom"/>
+  <layer name="beat_stud10_templates"
+     insert-after="beat_stud10_images"/>
+ </skin-path>
+
+</object>

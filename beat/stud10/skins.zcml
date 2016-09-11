@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="beat.stud10">
+
+  <!-- File System Directory Views registration -->
+  <cmf:registerDirectory name="beat_stud10_images"/>
+  <cmf:registerDirectory name="beat_stud10_templates"/>
+
+
+</configure>

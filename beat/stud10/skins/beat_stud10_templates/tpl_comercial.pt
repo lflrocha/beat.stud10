@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+    <metal:block fill-slot="style_slot">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <link href="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+        <script src="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    </metal:block>
+
+
+<body>
+
+
+<metal:content-core fill-slot="main">
+<metal:block use-macro="context/standard_view/macros/content-core">
+<metal:entries fill-slot="entries">
+
+    <div id="comerciais">
+        <div class="wrapper">
+        <metal:block use-macro="context/standard_view/macros/entries">
+        <metal:entry fill-slot="entry">
+            <a href="#" tal:attributes="data-featherlight string:#${item/id}">
+                <div class="job"
+                     tal:attributes="data-content item/Title">
+                     <img tal:attributes="src string:${item/getURL}/@@images/thumbnail/thumbnail" class="thumbnail" />
+                </div>
+            </a>
+        </metal:entry>
+        </metal:block>
+        </div>
+    </div>
+
+    <div style="display: none">
+        <metal:block use-macro="context/standard_view/macros/entries">
+        <metal:entry fill-slot="entry">
+            <div tal:attributes="id item/id">
+                <div class="conteudo" id="conteudo">
+                    <div class="videoInterno">
+                        <iframe width="850" height="478" src="rel=0" frameborder="0" allowfullscreen
+                                tal:attributes="src string:https://www.youtube.com/embed/${item/getYoutube}?rel=0&amp;showinfo=0"></iframe>
+                    </div>
+                    <p class="titulo" tal:content="item/Title"></p>
+                    <div class="textos">
+                        <div class="descricao">
+                            <p tal:content="structure item/getDescricao"></p>
+                        </div>
+                        <div class="ficha">
+                            <p tal:content="structure item/getFicha"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </metal:entry>
+        </metal:block>
+    </div>
+
+
+</metal:entries>
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>
